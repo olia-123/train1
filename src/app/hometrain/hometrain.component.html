@@ -1,0 +1,63 @@
+
+<h4>დაჯავშნეთ მატარებლის ბილეთი</h4>
+
+<form (ngSubmit)="onSubmit()">
+    <!-- from -->
+   <select [(ngModel)]="source" name="source" id="">
+      <option value="" disabled selected>საიდან</option>
+    @for (item of sources; track $index) {
+        <option  width="60" [value]="item.value"> {{item.viewValue}}</option>
+       
+
+      
+    }
+   </select>
+
+<!-- to -->
+   <select [(ngModel)]="destination" name="destination" id="">
+    {{destination}}
+    <option value="" disabled selected>სად</option>
+    @for (item of sources; track $index) {
+        <option [value]="item.value"> {{item.viewValue}}</option>
+    }
+   </select>
+<!-- date -->
+   <input type="date" [(ngModel)]="date" name="date"  [min]="todayDate" >
+ 
+<!-- pessenger  -->
+   <input type="number" [(ngModel)]="travelers" placeholder=" რაოდენობა">
+   
+   <button type="submit">მატარებლის მოძებნა</button>
+  
+</form>
+
+
+
+
+
+<section>
+   <div class="trainphoto">'
+ <img src="https://railway.stepprojects.ge/assets/img/train/trainticket.png" alt="err" width="100%" height="90%">
+</div>
+<div class="train-text">
+   <h2>მატარებლის ბილეთები</h2>
+   <p>რკინიგზის ბილეთების შესაძენად თქვენ დაგჭირდებათ თითოეული მგზავრის პირადი ნომერი. გთხოვთ მოამზადოთ ეს ინფორმაცია წინასწარ.</p>
+
+<ul>
+   <li>
+      <span><img src="https://railway.stepprojects.ge/assets/img/train/unoffer.png" alt="err"> </span>
+      <span>შეუზღუდავი შეთავაზებები</span>
+      </li>
+   <li > <span><img src="https://railway.stepprojects.ge/assets/img/train/suppor24.png" alt="err"> </span>
+      <span>24X7 მხარდაჭერა</span>
+   </li>
+   <li> <span><img src="https://railway.stepprojects.ge/assets/img/train/secure100.png" alt="err"> </span>
+      <span>100% უსაფრთხო</span>
+   </li>
+   <li> <span><img src="https://railway.stepprojects.ge/assets/img/train/truspay.png" alt="err"> </span>
+      <span>100% უსაფრთხო გადახდა</span>
+   </li>
+</ul>
+</div>
+</section>
+

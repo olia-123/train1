@@ -1,0 +1,47 @@
+.train-section {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .style{
+        font-weight: bolder;
+    }
+  }
+  
+
+
+h3{
+  background-color: #2840BF;
+  color: white;
+  width: 100%;
+  height: 30%;
+  padding: 50px 20px 20px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 800;
+}
+
+.train-info{
+    display: flex;
+    gap: 10%;
+    background-color: #F4F5FB;
+    padding: 20px;
+  margin-top: 15px;
+  font-family: "Segoe UI", sans-serif;
+  height: 15%;
+   margin-bottom: 30px;
+   border-bottom: 2px dashed #333;
+
+    .train-header{
+        background-color: #F4F5FB;
+  
+    }
+    .train-details{
+        display: flex;
+       gap: 80%;
+       
+    }
+}

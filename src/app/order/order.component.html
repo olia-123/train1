@@ -1,0 +1,191 @@
+<h3>მგზავრების მონაცემები</h3>
+
+
+<section class="train-section">
+
+
+<!-- <div class="train-info">
+    <p>{{train.number}}</p>
+    <p>{{train.name}}</p>
+    <p>{{train.departure}}</p>
+    <p>{{train.from}}</p>
+    <p>{{train.arrive}}</p>
+    <p>{{train.to}}</p>
+    
+</div> -->
+
+<!-- <p class="style">შეიყვანეთ თქვენი მონაცემები</p>
+
+<div class="train-info">
+    <div class="train-header">
+      <p># {{train.number}} </p>
+      <p> {{ train.name }} </p>
+    </div>
+  
+    <div class="train-details">
+      <div class="departure">
+        <p>{{ train.departure }}</p>
+        <p>{{ train.from }}</p> 
+      </div>
+      <div class="arrival">
+        <p>{{ train.arrive }}</p>
+        <p>{{ train.to }}</p> 
+      </div>
+    </div>
+  </div>
+
+</section>
+  
+
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="trainId"> მატარებლის აიდი</label>
+    <input type="text" id="trainId" [value]="trainId" readonly>
+  </div>
+
+  <div>
+    <label for="email">იმეილი </label>
+    <input type="email" id="email" formControlName="email" required>
+    <div *ngIf="orderForm.get('email')?.hasError('required')">ელექტრონული ფოსტა აუცილებელია</div>
+    <div *ngIf="orderForm.get('email')?.hasError('email')">მეილი არასწორი ფორმატისაა</div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">ტელეფონის ნომერი:</label>
+    <input type="tel" id="phoneNumber" formControlName="phoneNumber" required>
+    <div *ngIf="orderForm.get('phoneNumber')?.hasError('required')">ტელეფონის ნომერი აუცილებელია</div>
+  </div>
+
+  <div formArrayName="passangers">
+    <h5>მგზავრები</h5>
+    <div *ngFor="let passangerControl of passanger.controls; let i = index" [formGroupName]="i">
+      <h2>მგზავრი {{ i + 1 }}</h2>
+      <div>
+        <label for="name{{i}}">სახელი:</label>
+        <input type="text" id="name{{i}}" formControlName="name" required>
+        <div *ngIf="passangerControl.get('name')?.hasError('required')">სახელი აუცილებელია</div>
+      </div>
+
+      <div>
+        <label for="surname{{i}}">გვარი:</label>
+        <input type="text" id="surname{{i}}" formControlName="surname" required>
+        <div *ngIf="passangerControl.get('surname')?.hasError('required')">გვარი აუცილებელია</div>
+      </div>
+
+      <div>
+        <label for="idNumber{{i}}">პირადი ნომერი:</label>
+        <input type="text" id="idNumber{{i}}" formControlName="idNumber" required>
+        <div *ngIf="passangerControl.get('idNumber')?.hasError('required')">პირადი ნომერი აუცილებელია</div>
+      </div>
+
+      <div>
+        <label for="seat{{i}}">ადგილის ნომერი:</label>
+        <input type="text" id="seat{{i}}" [value]="" readonly>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!orderForm.valid">
+    ბილეთის დაჯავშნა
+  </button>
+</form> -->
+
+<p class="style">შეიყვანეთ თქვენი მონაცემები</p>
+
+<div class="train-info">
+  <div class="train-header">
+    <p># {{ train?.number }}</p>
+    <p>{{ train?.name }}</p>
+  </div>
+
+  <div class="train-details">
+    <div class="departure">
+      <p>{{ train?.departure }}</p>
+      <p>{{ train?.from }}</p> 
+    </div>
+    <div class="arrival">
+      <p>{{ train?.arrive }}</p>
+      <p>{{ train?.to }}</p> 
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="trainId">მატარებლის აიდი</label>
+    <input [(ngModel)]="trainId" [ngModelOptions]="{standalone: true}" readonly>
+
+  </div>
+
+  <div>
+    <label for="email">იმეილი</label>
+    <input type="email" id="email" formControlName="email" required>
+  
+    <div *ngIf="orderForm.get('email')?.hasError('email')">მეილი არასწორია</div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">ტელეფონის ნომერი</label>
+    <input type="tel" id="phoneNumber" formControlName="phoneNumber" required>
+   
+  </div>
+
+  <div formArrayName="passangers">
+    <h5>მგზავრები</h5>
+    <div *ngFor="let passangerControl of passangers().controls; let i = index" [formGroupName]="i">
+      <h2>მგზავრი {{ i + 1 }}</h2>
+
+      <div>
+        <label for="name{{i}}">სახელი</label>
+        <input type="text" id="name{{i}}" formControlName="name" required>
+      
+      </div>
+
+      <div>
+        <label for="surname{{i}}">გვარი</label>
+        <input type="text" id="surname{{i}}" formControlName="surname" required>
+      
+      </div>
+
+      <div>
+        <label for="idNumber{{i}}">პირადი ნომერი</label>
+        <input type="text" id="idNumber{{i}}" formControlName="idNumber" required>
+       
+      </div>
+
+      <div>
+        <label for="seat{{i}}">ადგილის ნომერი</label>
+        <input type="text" id="seat{{i}}" formControlName="seatId" readonly>
+      </div>
+    </div>
+  </div>
+
+  <!-- <button type="submit" [disabled]="!orderForm.valid">ბილეთის დაჯავშნა</button>
+  <div>
+    <button (click)="loadTrains()">ჩატვირთე მატარებლების სია</button>
+  </div>
+  
+  <hr>
+  
+  <div>
+    <label for="trainSelect">აირჩიეთ მატარებელი:</label>
+    <select id="trainSelect" [(ngModel)]="selectedTrainId">
+      <option *ngFor="let train of trains" [value]="train.id">{{ train.name }}</option>
+      <option [value]="null" disabled>აირჩიეთ მატარებელი</option>
+    </select>
+  </div>
+  
+  <div>
+    <button (click)="vagonSearch()" [disabled]="!selectedTrainId">მოძებნე ვაგონები</button>
+  </div>
+  
+  <div *ngIf="filterWagons && filterWagons.length > 0">
+    <h3>ამ მატარებლის ვაგონები:</h3>
+    <ul>
+      <li *ngFor="let wagon of filterWagons">{{ wagon.name }} (ID: {{ wagon.id }})</li>
+    </ul>
+  </div>
+  
+  <p *ngIf="filterWagons && filterWagons.length === 0 && selectedTrainId">ამ მატარებელს ვაგონები არ აქვს.</p>
+  <p *ngIf="error">{{ error }}</p> -->
+</form>

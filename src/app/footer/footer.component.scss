@@ -1,0 +1,25 @@
+.footer-text {
+    text-align: center;
+    font-size: 15px;
+    color: #444;
+    letter-spacing: 0.3px;
+    display: flex; 
+    margin-top: 160px;
+  }
+  
+  .blue-brand {
+    color: #452FF4; 
+    font-weight: bold;
+    font-size: 15px
+  }
+  
+  :host {
+    height:260px;
+    background-color:#F4F5FC ;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    display: block;
+    position: relative;
+  }
+  

@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/hometrains" routerLinkActive="isActive"  [routerLinkActiveOptions]="{ exact: true }">	მთავარი</a>
+         
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="isActive">	ჩვენ შესახებ</a> 
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ticket-checker" routerLinkActive="isActive">ძირითადი</a>
+          </li>
+          
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="step">
+ <img src="https://railway.stepprojects.ge/assets/img/logo/logo.png" alt="php">
+ <button class="cmn__btn" [routerLink]="['/check-ticket']">
+  <span>ბილეთის შემოწმება/ დაბრუნება</span>
+</button>
+
+
+
+</div>
+
+ <div class="stepinfo">
+  <div class="steponline">
+    <h4 class="ticket-title">შეიძინეთ მატარებლის ბილეთები <br> </h4>
+  <h4 class="ticket-title"> ონლაინ <br></h4>
+ 
+  </div>
+  <h6 class="ticket-title2">გისურვებთ ბედნიერ მგზავრობას!</h6>
+ </div>
