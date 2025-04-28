@@ -27,6 +27,7 @@ export class TrainsComponent implements OnInit {
 
     const params = this.route.snapshot.queryParamMap;
     this.travelers= +(params.get('travelers') || 0)
+    console.log(this.travelers)
     
   }
   fetchTrains(){
@@ -53,15 +54,20 @@ export class TrainsComponent implements OnInit {
 
   
   transformToGoergianWeekday(dateString:string){
-    const weekdays = ['კვირა', 'ორშაბათი', "სამშბათი", "ოთხშაბათი", "ხუთშაბათი " , "პარასკევი", "შაბათი"];
+    const weekdays = ['კვირა', 'ორშაბათი', "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი " , "პარასკევი", "შაბათი"];
     const dateObj = new Date(dateString);
     const weekday = weekdays[dateObj.getDay()]
     return weekday
   }
 
-  order(train:any, trainId:any)
-  {
-this.router.navigate(['/order'],{state:{train:train,trainId:trainId}})
+  order(train:any, trainId:any){
+    this.router.navigate(['/order'],{
+      state:{
+        train:train,
+        trainId:trainId,
+        date:this.date,
+        travelers:this.travelers
+    }})
   }
 
 
