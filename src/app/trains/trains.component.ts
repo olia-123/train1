@@ -68,6 +68,10 @@ export class TrainsComponent implements OnInit {
         date:this.date,
         travelers:this.travelers
     }})
+
+
+
+    
   }
 
 
