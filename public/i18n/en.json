@@ -1,0 +1,38 @@
+{
+    "HEADER":{
+        "TITLE":"About us"
+    },
+
+    "HEADERS":{
+        "TITLE1":"Main"
+    },
+
+    "HEADERS2":{
+        "TITLE2":"Primary"
+    },
+
+
+    "HEADERS3":{
+        "TITLE3":"Check/Return Ticket"
+    },
+
+
+    "HEADERS4":{
+        "TITLE4":"Buy Train Tickets"
+    },
+
+
+    "HEADERS5":{
+        "TITLE5":"Online"
+    },
+    "HEADERS6":{
+        "TITLE6":"We wish you a pleasant journey!n"
+    },
+
+
+    "TRAINS":{
+        "TRAIN ":" Train list"
+
+
+    }
+}

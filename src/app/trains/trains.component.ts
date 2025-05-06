@@ -2,10 +2,11 @@ import { NgFor } from '@angular/common';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule,TranslatePipe,TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-trains',
-  imports: [NgFor],
+  imports: [NgFor,TranslateModule],
   templateUrl: './trains.component.html',
   styleUrl: './trains.component.scss'
 })
@@ -15,8 +16,12 @@ export class TrainsComponent implements OnInit {
   date!:string;
   travelers!:number;
   trains:any[]=[];
+  public selectedLanguage :string ='ka';
 
-  constructor(private router:Router,private route:ActivatedRoute, private http:HttpClient){}
+  constructor(private router:Router,
+    private route:ActivatedRoute, 
+    private http:HttpClient,
+    private translateService: TranslateService){}
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
       this.source=params['source'];

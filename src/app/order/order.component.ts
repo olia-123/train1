@@ -35,6 +35,7 @@ interface wagon {
 export  class OrderComponent  implements OnInit{
   orderform: any;
 
+
   
 
 
@@ -92,8 +93,8 @@ for (let i = 0; i < this.travelers; i++) {
       name:new FormControl("",[Validators.required]),
       surname:new FormControl("",[Validators.required]),
       idNumber:new FormControl("",[Validators.required]),
-      status:new FormControl("",[Validators.required]),
-      payoutCompleted: new FormControl("",[Validators.required]),
+      status:new FormControl("confirmed",[Validators.required]),
+      payoutCompleted: new FormControl(true,[Validators.required]),
  
     })
   )
@@ -161,12 +162,12 @@ console.log(this.reservationForm.value)
         this.price = selectedSeat.price;
   
         console.log("არჩეული ფასი", this.price)
-        console.log("ადგილის გამოტანა", "SeatId")
+        console.log("ადგილის გამოტანა", selectedSeat.seatId)
  
         const passengers = this.reservationForm.get('people') as FormArray;
         const passenger = passengers.at(this.selectedPassengerIndex) as FormGroup;
  
-        passenger.get('seatId')?.setValue(selectedSeat.number);
+        passenger.get('seatId')?.setValue(selectedSeat.seatId);
  
         this.selectedSeatIds.set(
           this.selectedPassengerIndex, selectedSeat.seatId
@@ -219,8 +220,8 @@ console.log(this.reservationForm.value)
 
   api="https://railway.stepprojects.ge/api/tickets/register"
   post(){
-    if(this.orderform.valid){
-      const formData = this.orderform.value; 
+    if(this.reservationForm.valid){
+      const formData = this.reservationForm.value; 
       const ticketData = {
         trainId : this.trainId, 
         data:new Date().toISOString(), 
@@ -239,7 +240,7 @@ console.log(this.reservationForm.value)
       const headers = new HttpHeaders({
         'Content-type':'application/json'
       }); 
-      this.http.post(this.api, ticketData, {
+      this.http.post(this.api, this.reservationForm, {
         headers,
         responseType:'text' as 'json'
       })
@@ -247,7 +248,13 @@ console.log(this.reservationForm.value)
         try{
           const stringedRespnse = JSON.stringify(response); 
           const ticketId = stringedRespnse.slice(46,stringedRespnse.length-1);
-          console.log("ბილეთის ნომერი", ticketId)
+          console.log("ბილეთის ნომერი", ticketId);
+          if(response){
+            console.log("ticketId:", response)
+          }else{
+            console.log("no response")
+          }
+          
 
           sessionStorage.setItem("tickID", ticketId)
         }catch(e){
@@ -261,6 +268,9 @@ console.log(this.reservationForm.value)
     }
   }
 
-
+  consoleMe(reserve:any){
+    console.log("form info:", reserve.value)
+    console.log("orderforn:", this.orderform)
+  }
 
 }

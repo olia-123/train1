@@ -9,13 +9,13 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
         <li class="nav-item">
-          <a class="nav-link " routerLink="/hometrains" routerLinkActive="isActive"  [routerLinkActiveOptions]="{ exact: true }">	მთავარი</a>
+          <a class="nav-link " routerLink="/hometrains" routerLinkActive="isActive"  [routerLinkActiveOptions]="{ exact: true }">	{{ "HEADERS.TITLE1" | translate }}</a>
          
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="isActive">	ჩვენ შესახებ</a> 
+          <a class="nav-link" routerLink="/about" routerLinkActive="isActive">{{ "HEADER.TITLE" | translate }} </a> 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/ticket-checker" routerLinkActive="isActive">ძირითადი</a>
+            <a class="nav-link" routerLink="/ticket-checker" routerLinkActive="isActive">{{ "HEADERS2.TITLE2" | translate }}</a>
           </li>
           
       </ul>
@@ -24,10 +24,19 @@
   </div>
 </nav>
 
+
+
+<div class="language-switcher">
+  <button (click)="switchLanguage('en')">English </button>
+  <button (click)="switchLanguage('ka')">ქართული</button>
+  <button (click)="switchLanguage('ru')">РУССКИЙ</button>
+</div>
+
+
 <div class="step">
  <img src="https://railway.stepprojects.ge/assets/img/logo/logo.png" alt="php">
  <button class="cmn__btn" [routerLink]="['/check-ticket']">
-  <span>ბილეთის შემოწმება/ დაბრუნება</span>
+  <span>{{ "HEADERS3.TITLE3" | translate }}</span>
 </button>
 
 
@@ -36,9 +45,12 @@
 
  <div class="stepinfo">
   <div class="steponline">
-    <h4 class="ticket-title">შეიძინეთ მატარებლის ბილეთები <br> </h4>
-  <h4 class="ticket-title"> ონლაინ <br></h4>
+    <h4 class="ticket-title">{{ "HEADERS4.TITLE4" | translate }} <br> </h4>
+  <h4 class="ticket-title"> {{ "HEADERS5.TITLE5" | translate }}<br></h4>
  
   </div>
-  <h6 class="ticket-title2">გისურვებთ ბედნიერ მგზავრობას!</h6>
+  <h6 class="ticket-title2">{{ "HEADERS6.TITLE6" | translate }}</h6>
  </div>
+
+ 
+ 

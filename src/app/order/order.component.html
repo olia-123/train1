@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="reservationForm" (ngSubmit)="post()" >
   <div class="text4">
   <h5 >საკონტაქტო ინფორმაცია</h5></div>
   <!-- <div>
@@ -88,8 +88,9 @@
         <span>წავიკითხე და ვეთანხმები წესებს</span>
       </div>
   </div> 
+  <button type="button" (click)="consoleMe(reservationForm)">console</button>
   
-   <button type="submit" class="registration" (click)="onSubmit()"  [disabled]="!reservationForm || reservationForm.invalid"
+   <button type="submit" class="registration" (click)="post()"  [disabled]="!reservationForm || reservationForm.invalid"
    [ngStyle]="{cursor:reservationForm.invalid? 'not-allowed':''}">Submit</button>
 </div>
 
