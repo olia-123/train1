@@ -1,0 +1,94 @@
+.train-advantages {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 30px;
+}
+.train-advantages h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+.train-advantages .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 60px;
+}
+.train-advantages .col-md-4 {
+  flex: 0 0 10 auto;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .train-advantages .col-md-4 {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .train-advantages .col-md-4 {
+    width: 33.333333%;
+  }
+}
+.train-advantages .col-md-4 .card {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  height: 100%;
+}
+.train-advantages .fixed-size-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.train-advantages .card-img-top {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.train-advantages .card-body {
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.train-advantages .card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+}
+.train-advantages .card-text {
+  font-size: 0.9rem;
+  color: #777;
+}
+.train-advantages .mt-3 {
+  margin-top: 1.5rem !important;
+  width: 100%;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .train-advantages .mt-3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 992px) {
+  .train-advantages .mt-3 {
+    width: 33.333333%;
+  }
+}/*# sourceMappingURL=link.component.css.map */

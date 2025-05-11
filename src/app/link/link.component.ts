@@ -1,18 +1,18 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-link',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './link.component.html',
   styleUrl: './link.component.scss'
 })
 export class LinkComponent {
-user = {
-  name:"Tamar", 
-  role:"Front-End Developer"
-}
+public selectedLanguage: string = 'ka';
 
-isLoggedIn=false;
+constructor(
+    private translateService: TranslateService) { }
+
 
 }

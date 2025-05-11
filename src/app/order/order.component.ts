@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { LoadingComponent } from '../loading/loading.component'; 
+import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 interface wagon {
   id: number;
@@ -28,18 +30,20 @@ interface wagon {
 
 @Component({
   selector: 'app-order',
-  imports: [FormsModule,ReactiveFormsModule,NgFor, NgIf, CommonModule],
+  imports: [FormsModule,ReactiveFormsModule,NgFor, NgIf, CommonModule , LoadingComponent,TranslateModule],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })
 export  class OrderComponent  implements OnInit{
   orderform: any;
-
+  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  isLoading: boolean = false; 
+ public selectedLanguage: string = 'ka';
 
   
 
 
-  constructor (private fb: FormBuilder,private http: HttpClient, private router: Router){}
+  constructor (private fb: FormBuilder,private http: HttpClient, private router: Router, private trabslateservice: TranslateService,){}
  
   public train:any;
   public trainId :any;
@@ -65,6 +69,8 @@ selectedWagon: wagon | undefined;
 
   ngOnInit(): void {
 
+    
+
     this.train = history.state.train;
     this.trainId = history.state.trainId;
     this.date = history.state.date;
@@ -82,7 +88,7 @@ this.reservationForm = new FormGroup({
   trainId:new FormControl(this.trainId),
   date:new FormControl(this.date),
   email: new FormControl("",[Validators.email]),
-  phoneNumber: new FormControl("",[Validators.required]),
+  phoneNumber: new FormControl("",[Validators.required, Validators.pattern(/^5\d{8}$/)]),
   people: new FormArray([])
 })
 
@@ -113,6 +119,7 @@ console.log(this.reservationForm.value)
   
 
   vagonSearch() {
+    this.isLoading = true;
     const url = `https://railway.stepprojects.ge/api/vagons`;
     this.http.get(url).subscribe(
       (response: any) => {
@@ -120,9 +127,11 @@ console.log(this.reservationForm.value)
         this.filteredWagons = response.filter(
           (wagon: any) => wagon.trainId === this.trainId
         );
+        this.isLoading = false;
       },
       (error) => {
         console.error('error', error);
+        this.isLoading = false;
       }
     );
   }
@@ -218,59 +227,96 @@ console.log(this.reservationForm.value)
   }
 
 
-  api="https://railway.stepprojects.ge/api/tickets/register"
-  post(){
-    if(this.reservationForm.valid){
-      const formData = this.reservationForm.value; 
-      const ticketData = {
-        trainId : this.trainId, 
-        data:new Date().toISOString(), 
-        email:formData.email, 
-        phoneNumber:formData.phoneNumber, 
-        people:formData.passengers.map((passenger:any)=>({
-          seatId:this.seatNum, 
-          name:passenger.name, 
-          surname:passenger.surname, 
-          idNumber:passenger.idNumber, 
-          status:"confirmed", 
-          payoutCompleted:true
-        }))
-
-      };
-      const headers = new HttpHeaders({
-        'Content-type':'application/json'
-      }); 
-      this.http.post(this.api, this.reservationForm, {
-        headers,
-        responseType:'text' as 'json'
-      })
-      .subscribe((response)=>{
-        try{
-          const stringedRespnse = JSON.stringify(response); 
-          const ticketId = stringedRespnse.slice(46,stringedRespnse.length-1);
-          console.log("ბილეთის ნომერი", ticketId);
-          if(response){
-            console.log("ticketId:", response)
-          }else{
-            console.log("no response")
-          }
+  // api="https://railway.stepprojects.ge/api/tickets/register"
+  // post(){
+   
+  //     this.http.post(this.api, this.reservationForm.value, {responseType: 'text'})
+  //     .subscribe((response)=>{
+  //       try{
+      
+  //         const ticketId = response;
+  //           console.log("ticketId:", response)
           
+    
+  //         sessionStorage.setItem("tickID", ticketId)
+  //       }catch(e){
+  //         console.error("error", e)
+  //       }
+  //     })
+ 
+  // }
 
-          sessionStorage.setItem("tickID", ticketId)
-        }catch(e){
-          console.error("error", e)
+  // consoleMe(reserve:any){
+  //   console.log("form info:", reserve.value)
+  //   console.log("orderforn:", this.orderform)
+  // }
+
+ 
+
+  // // goToPayment(): void {
+  // //   const totalPrice = 100; 
+  // // this.router.navigate(['/payment'], { queryParams: { total: totalPrice } });
+    
+  // // }
+
+  // // post(): void {
+  // //   this.submitOrder();
+  // // }
+
+  // submitOrder(): void {
+  //   if (this.reservationForm.valid) {
+  //     console.log('Form submitted:', this.reservationForm.value);
+  //     // *** აქ შეგიძლიათ დაამატოთ თქვენი ლოგიკა ფორმის მონაცემების სერვერზე გასაგზავნად ***
+
+  //     // გადამისამართება გადახდის გვერდზე
+  //     this.router.navigate(['/payment'], {
+  //       state: {
+  //         totalPrice: this.totalPrice
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Form is invalid');
+  //     // *** აქ შეგიძლიათ დაამატოთ ლოგიკა მომხმარებლისთვის ვალიდაციის შეცდომების საჩვენებლად ***
+  //   }
+  // }
+  api = "https://railway.stepprojects.ge/api/tickets/register";
+  post(): void {
+    this.isLoading = true;
+    this.http.post(this.api, this.reservationForm.value, { responseType: 'text' })
+      .subscribe((response) => {
+        this.isLoading = false;
+        try {
+          const ticketId = response;
+          console.log("ticketId:", response);
+          sessionStorage.setItem("tickID", ticketId);
+  
+          sessionStorage.setItem("totalPrice", this.totalPrice.toString());
+
+          this.router.navigate(['/payment'], {
+            state: {
+              totalPrice: this.totalPrice
+            }
+          });
+          console.log('Total price before navigation:', this.totalPrice);
+        } catch (e) {
+          console.error("error", e);
         }
-      }, 
-    (error)=>{
-      console.error("error", error)
-    })
+      }, (error) => {
+        this.isLoading = false;
+        console.error("HTTP error:", error);
+          console.log("Error status:", error.status);
+          console.log("Error body:", error.error);
+        
 
-    }
+
+
+      });
   }
 
-  consoleMe(reserve:any){
-    console.log("form info:", reserve.value)
-    console.log("orderforn:", this.orderform)
-  }
 
 }
+
+
+
+
+

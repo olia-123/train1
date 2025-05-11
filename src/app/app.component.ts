@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { MainComponent } from './main/main.component';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faPrint, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -15,13 +17,8 @@ import { MainComponent } from './main/main.component';
 export class AppComponent {
   title = 'angular4';
 
-  public firstName:string="Giorgi";
-  public colorList:string[]=['red', "green", "yellow", 'black']
-
-  public text:any;
-  takeInfo(info:any):void{
-    this.text=info;
-    console.log(info)
+ constructor(library: FaIconLibrary) {
+    library.addIcons(faPrint, faFilePdf);
   }
 }
 

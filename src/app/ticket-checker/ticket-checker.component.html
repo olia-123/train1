@@ -1,8 +1,50 @@
 
-<h2>ბილეთის ნომერი</h2>
-<div class="tick">
-<input type="text" placeholder="შეიყვანეთ ბილეთის ნომერი" />
-<button class="check-btn">შემოწმება </button>
 
+<h2>{{ 'Ticket-check1.ticketnum' | translate }}</h2>
+
+<div class="tick">
+  <input 
+    type="text" 
+    [(ngModel)]="ticketId" 
+    placeholder="{{ 'TICKET.ENTER_NUMBER' | translate }}" 
+  />
+  <button class="check-btn" (click)="getTktInfo(ticketId)">
+   {{ 'TICKET1.CHOOSE' | translate }}
+  </button>
 </div>
 
+ <div class="personal">
+
+<div *ngIf="ticketData">
+
+   <section class="travel-info">
+    <p><strong>გამგზავრება:</strong> {{ ticketData.train?.from }} {{ ticketData.train?.departure }} ზე</p>
+    <p><strong>ჩასვლა:</strong> {{ ticketData.train?.to }} {{ ticketData.train?.arrive }} ზე</p>
+   
+  </section>
+  <p><strong>ბილეთის აიდი:</strong> {{ ticketData.id }}</p>
+  <p><strong>მგზავრის სახელი:</strong> 
+    {{ ticketData.persons[0]?.name }} {{ ticketData.persons[0]?.surname}}
+  </p>
+  <p><strong>ადგილი:</strong> 
+    {{ ticketData.persons[0]?.seatNum }}
+  </p>
+  <p><strong>თარიღი:</strong> {{ ticketData.date }}</p>
+  <p><strong>ტელეფონი ნომერი:</strong> {{ ticketData.phone }}</p>
+  <p><strong>იმეილი:</strong> {{ ticketData.email }}</p>
+  <p><strong>ბილეთის ფასი :</strong> {{ ticketData.ticketPrice }} ₾</p>
+
+   
+
+  
+  <button (click)="deleteTkt(ticketData.id)" class="delete-btn">
+    ბილეთის წაშლა
+  </button>
+</div>
+</div> 
+ 
+
+<div *ngIf="ticketNotFound" class="error">
+  ბილეთი ვერ მოიძებნა </div>
+
+  

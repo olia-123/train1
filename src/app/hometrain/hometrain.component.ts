@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateModule,TranslatePipe,TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hometrain',
-  imports: [FormsModule],
+  imports: [FormsModule,TranslateModule],
   templateUrl: './hometrain.component.html',
   styleUrl: './hometrain.component.scss'
 })
 export class HometrainComponent {
 
-  constructor (private router:Router){}
+  public selectedLanguage :string ='ka';
+
+  constructor (private router:Router,
+     private translateService: TranslateService
+  ){}
 
   sources:any[]=[
     {value:"თბილისი", viewValue:"თბილისი"},

@@ -17,11 +17,13 @@ h3{
   background-color: #2840BF;
   color: white;
   width: 100%;
-  height: 30%;
-  padding: 50px 20px 20px;
+  padding: 30px 15px 30px 15px;
   font-size: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .train-info{
@@ -246,13 +248,24 @@ h3{
 .input1{
   display: flex;
   margin-bottom: 50px;
+  gap: 20px;
+
   .input-email{
-      width: 420.5px;
+      width: 330px;
       height: 47px;
       border-radius: 5px;
       border: 1px solid #EBEBEB;
       padding-left: 10px;
   }
+
+.input-mobile{
+   width: 330px;
+      height: 47px;
+      border-radius: 5px;
+      border: 1px solid #EBEBEB;
+      padding-left: 10px;
+
+}
   .input-phonenumber{
       width: 420.5px;
       height: 47px;
@@ -329,21 +342,126 @@ span{
   }
 }
     
-.attention{
+// .attention{
+//   display: flex;
+//   justify-content: space-between;
+//     margin-top: 25px;
+    
+
+// .pirveli,.meore,.mesame{
+//   cursor: pointer;
+//   transition: background-color 0.3s;
+
+//  
+// }
+    
+
+// }
+
+.attention-container {
   display: flex;
-    margin-top: 25px;
-    gap: 50px;
+  
+  padding: 30px;
+  border-radius: 8px; 
+  justify-content: space-between;
 
-.pirveli,.meore,.mesame{
-  cursor: pointer;
-  transition: background-color 0.3s;
+}
 
-  &:hover {
+.attention-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee; 
+  border-radius: 6px;
+  padding: 10px 15px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+
+   &:hover {
     background-color: #4896ea;
     box-shadow: #007BFF;
     border-radius: 3%;
   }
 }
-    
+
+.icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+
+  
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.text {
+  display: flex;
+  align-items: center;
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: default; 
+  }
+
+  span {
+    font-size: 16px;
+    color: #333;
+  }
+}
+
+.not-included {
+
+  .not-included-text {
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+    }
+    span {
+      color: #dc3545; 
+      font-weight: bold;
+    }
+  }
+}
+
+
+  @media (max-width: 1200px){
+    .input-child{
+   
+      display: flex;
+      flex-direction: column;}
+
+      .input1{
+        
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  gap: 20px;
+
+  .input-email{
+      width: 330px;
+      height: 47px;
+      border-radius: 5px;
+      border: 1px solid #EBEBEB;
+      padding-left: 10px;
+  }}
+
+
+.attention-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 8px; 
+  justify-content: space-between;
+  gap: 10px;
 
 }
+
+
+  }
+

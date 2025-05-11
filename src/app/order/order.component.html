@@ -1,9 +1,9 @@
-<h3>მგზავრების მონაცემები</h3>
+<h3>{{ 'ORDER.TEXT1' | translate }}</h3>
 
 
 <section class="train-section">
 
-<p class="style">შეიყვანეთ თქვენი მონაცემები</p>
+<p class="style">{{ 'ORDER1.TEXT2' | translate }}</p>
 
 <div class="train-info">
   <div class="train-header">
@@ -23,9 +23,15 @@
   </div>
 </div>
 
+<div *ngIf="isLoading" class="loading-overlay">
+  <app-loading></app-loading>
+</div>
+
+
 <form [formGroup]="reservationForm" (ngSubmit)="post()" >
   <div class="text4">
-  <h5 >საკონტაქტო ინფორმაცია</h5></div>
+  <h5 >{{ 'ORDER2.TEXT3' | translate }}</h5>
+</div>
   <!-- <div>
     <label for="trainId">მატარებლის აიდი</label>
     <input type="text " name="trainId" formControlName="trainId" id="trainId" readonly>
@@ -33,43 +39,48 @@
   </div> -->
 
   <div class="input1">
-    <input class="input-email" type="email" id="email" formControlName="email" placeholder="იმეილი">
-
-    <input class="input-phonenumber" type="tel" id="phoneNumber" formControlName="phoneNumber" placeholder="ტელეფონის ნომერი">
+    <input class="input-email" type="email" id="email" formControlName="email" placeholder="{{ 'ORDER3.TEXT4' | translate }}">
+<div class="tele">
+    <!-- <input class="input-phonenumber" type="tel" id="phoneNumber" formControlName="phoneNumber" placeholder="ტელეფონის ნომერი"> -->
+    <input class="input-mobile" type="tel" id="phoneNumber" formControlName="phoneNumber" placeholder="{{ 'ORDER4.TEXT5' | translate }}">
+<div *ngIf="reservationForm.get('phoneNumber')?.invalid && reservationForm.get('phoneNumber')?.touched">
+  <small *ngIf="reservationForm.get('phoneNumber')?.errors?.['pattern']">{{ 'ORDER5.TEXT6' | translate }}</small>
 </div>
 
+</div>
+</div>
 <div class="text4">
-  <h5>მგზავრების ინფორმაცია</h5>
+  <h5>{{ 'ORDER6.TEXT5' | translate }}</h5>
 </div>
   
   <div class="input-parent" formArrayName="people">
            
     @for (travelers of people.controls; track travelers; let i =$index){
      <div class="text5">
-         <h5>მგზავრი{{ i + 1 }}</h5>
+         <h5>{{ 'ORDER7.TEXT6' | translate }}{{ i + 1 }}</h5>
      </div>
      <div class="input-child"  [formGroupName]= "i">
 
        <div class="input4">
-        <!-- <label for="seat">ადგილის ნომერი</label> -->
-        <input type="text" id="seat" formControlName="seatId" placeholder="ადგილი:" readonly>
+  
+        <input type="text" id="seat" formControlName="seatId" placeholder="{{ 'ORDER8.TEXT7' | translate }}:" readonly>
       </div> 
       
   
          <div class="input4">
-             <input type="text" id="name" formControlName="name" placeholder="სახელი" >
+             <input type="text" id="name" formControlName="name" placeholder="{{ 'ORDER9.TEXT8' | translate }}" >
          </div>
 
          <div class="input4">
-             <input type="text" id="surname" formControlName="surname" placeholder="გვარი" >
+             <input type="text" id="surname" formControlName="surname" placeholder="{{ 'ORDER11.TEXT10' | translate }}" >
          </div>
 
          <div class="input4">
-             <input type="text" id="idNumber" formControlName="idNumber" placeholder="პირადი ნომერი">
+             <input type="text" id="idNumber" formControlName="idNumber" placeholder="{{ 'ORDER12.TEXT11' | translate }}">
          </div>
        <div class="btn">
          <button type="button" (click)="signIn($event, i); vagonSearch()">
-             <span>ადგილის<br>არჩევა</span>
+             <span>{{ 'ORDER13.TEXT12' | translate }}</span>
          </button>
        </div>
      </div>
@@ -81,51 +92,53 @@
 
 <div class="invoice">
   <div class="price_container">
-      <p>სულ:</p>
+      <p>{{ 'ORDER14.TEXT13' | translate }}</p>
       <p>{{this.totalPrice}}₾</p>
       <div class="input-checkbox">
         <input type="checkbox">
-        <span>წავიკითხე და ვეთანხმები წესებს</span>
+        <span>{{ 'ORDER15.TEXT14' | translate }}</span>
       </div>
   </div> 
-  <button type="button" (click)="consoleMe(reservationForm)">console</button>
+  <!-- <button type="button" (click)="consoleMe(reservationForm)">console</button> -->
   
-   <button type="submit" class="registration" (click)="post()"  [disabled]="!reservationForm || reservationForm.invalid"
+    <button type="submit" class="registration" (click)="post()"  [disabled]="reservationForm.invalid || isLoading"
    [ngStyle]="{cursor:reservationForm.invalid? 'not-allowed':''}">Submit</button>
-</div>
+</div> 
 
 
 
 
-<div class="attention">
-
-  <div class="pirveli">
-    <img src="https://railway.stepprojects.ge/assets/img/svg/pbag1.svg" alt="">
-    <div class="pirveli-teqsti">
-    <input type="checkbox">
-    <span>included</span>
-  </div>
-  </div>
-   
-<div class="meore">
-   <img src="https://railway.stepprojects.ge/assets/img/svg/pbag2.svg" alt="">
-   <div class="meore-teqsti">
-    <img src="https://railway.stepprojects.ge/assets/img/svg/cross.svg" alt="">
-    
-              <span class="text-span3">Not Included</span>
-   </div>
-  </div>
-
-  <div class="mesame">
-    <img src="https://railway.stepprojects.ge/assets/img/svg/pbag3.svg" alt="">
-    <div class="pirveli-teqsti">
-      <input type="checkbox">
-      <span>included</span>
+<div class="attention-container">
+  <div class="attention-item included">
+    <div class="icon">
+      <img src="https://railway.stepprojects.ge/assets/img/svg/pbag1.svg" alt="ჩართულია">
     </div>
-</div>
-</div>
+    <div class="text">
+      <input type="checkbox" checked disabled>
+      <span>{{ 'ORDER17.TEXT15' | translate }}</span>
+    </div>
+  </div>
 
+  <div class="attention-item not-included">
+    <div class="icon">
+      <img src="https://railway.stepprojects.ge/assets/img/svg/pbag2.svg" alt="არ არის ჩართული">
+    </div>
+    <div class="text not-included-text">
+      <img src="https://railway.stepprojects.ge/assets/img/svg/cross.svg" alt="არ არის ჩართული">
+      <span>{{ 'ORDER18.TEXT16' | translate }}</span>
+    </div>
+  </div>
 
+  <div class="attention-item included">
+    <div class="icon">
+      <img src="https://railway.stepprojects.ge/assets/img/svg/pbag3.svg" alt="ჩართულია">
+    </div>
+    <div class="text">
+      <input type="checkbox" checked disabled>
+      <span>{{ 'ORDER17.TEXT15' | translate }}</span>
+    </div>
+  </div>
+</div>
 
 
 

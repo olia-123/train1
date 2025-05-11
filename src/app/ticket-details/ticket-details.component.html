@@ -1,0 +1,64 @@
+
+
+<div *ngIf="successMessage" class="success-message">
+  <fa-icon [icon]="['fas', 'check-circle']" class="check-icon"></fa-icon>
+  {{ successMessage }}
+</div>
+
+<div *ngIf="ticketData" #ticketContent class="ticket-content">
+  <h2><h2>{{ 'TICKET-DETAILS.details' | translate }}</h2>
+</h2>
+
+  <section class="travel-info">
+    <p><strong>{{ 'TICKET_DETAILS.DEPARTURE' | translate }}:</strong> {{ ticketData.train?.from }} {{ ticketData.train?.departure }} ზე</p>
+    <p><strong>{{ 'TICKET_DETAILS.ARRIVAL' | translate }}:</strong> {{ ticketData.train?.to }} {{ ticketData.train?.arrive }} ზე</p>
+  </section>
+
+<p><strong style="color: #c00;">{{ 'TICKET_DETAILS.TICKET_ID' | translate }}:</strong> {{ ticketData.id }}</p>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="phone">{{ 'TICKET_DETAILS.PHONE' | translate }}:</label>
+      <input id="phone" type="text" [value]="ticketData.phone" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="email">{{ 'TICKET_DETAILS.EMAIL' | translate }}:</label>
+      <input id="email" type="email" [value]="ticketData.email" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="date">{{ 'TICKET_DETAILS.DATE' | translate }}:</label>
+      <input id="date" type="text" [value]="ticketData.date"  readonly class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="price">{{ 'TICKET_DETAILS.PRICE' | translate }}:</label>
+      <input id="price" type="number" [value]="ticketData.ticketPrice" readonly class="form-control" />
+    </div>
+  </div>
+
+  <div *ngIf="ticketData.persons?.length > 0">
+    <h3>{{ 'TICKET_DETAILS.PASSENGERS' | translate }}</h3>
+    <div *ngFor="let person of ticketData.persons" class="form-grid">
+      <div class="form-group">
+        <label>{{ 'TICKET_DETAILS.FIRST_NAME' | translate }}:</label>
+        <input type="text" [value]="person.name" readonly class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>{{ 'TICKET_DETAILS.LAST_NAME' | translate }}:</label>
+        <input type="text" [value]="person.surname" readonly class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>{{ 'TICKET_DETAILS.PERSONAL_ID' | translate }}:</label>
+        <input type="text" [value]="person.idNumber" readonly class="form-control" />
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="printTicket()" class="btn">
+      <fa-icon [icon]="['fas', 'print']"></fa-icon> PRINT
+    </button>
+    <button (click)="downloadPDF()" class="btn">
+      <fa-icon [icon]="['fas', 'file-pdf']"></fa-icon> PDF
+    </button>
+  </div>
+</div>

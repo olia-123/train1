@@ -1,18 +1,48 @@
-<p>link works!</p>
-<div class="container">
-<h1>Welcome</h1>
+<div class="container train-advantages">
+  <h3>{{ 'LINK.TITLE' | translate }}</h3>
 
-
-<!-- @if(isLoggedIn){
-    <div>
-        <h2>Hello, {{user.name}}</h2>
-        <p>Your Role is: {{user.role}}</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card fixed-size-card">
+        <img src="https://tre.ge/images/safety.png" class="card-img-top" alt="უსაფრთხოება">
+        <div class="card-body">
+          <h5 class="card-title">{{ 'LINK1.NAME' | translate }}</h5>
+          <p class="card-text">{{ 'LINK2.TEXT' | translate }}</p>
+        </div>
+      </div>
     </div>
-}
-</div> -->
-<!-- 
-<div *ngIf="isLoggedIn" >
-    <h2 >Hello, {{user.name}}</h2>
-    <p>Your Role is: {{user.role}}</p>
+    <div class="col-md-4">
+      <div class="card fixed-size-card">
+        <img src="https://tre.ge/images/fast.png" class="card-img-top" alt="სწრაფი">
+        <div class="card-body">
+          <h5 class="card-title">{{ 'LINK3.TEXT1' | translate }}</h5>
+          <p class="card-text"> {{ 'LINK4.TEXT2' | translate }} </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card fixed-size-card">
+        <img src="https://tre.ge/images/cheaper-transport.png" class="card-img-top" alt="იაფი">
+        <div class="card-body">
+          <h5 class="card-title">{{ 'LINK5.TEXT3' | translate }}</h5>
+          <p class="card-text">{{ 'LINK6.TEXT4' | translate }}</p>
+        </div>
+      </div>
+    </div>
 
-</div> -->
+    <div class="col-md-4">
+      <div class="card fixed-size-card">
+        <img src="https://tre.ge/images/comport.png" class="card-img-top" alt="კომფორტული">
+        <div class="card-body">
+          <h5 class="card-title">{{ 'LINK7.TEXT5' | translate }}</h5>
+          <p class="card-text">{{ 'LINK8.TEXT6' | translate }}</p>
+        </div>
+      </div>
+   
+    </div>
+
+
+    
+    </div>
+    
+</div>

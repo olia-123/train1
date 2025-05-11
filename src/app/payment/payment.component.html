@@ -1,0 +1,33 @@
+<h2>{{ 'PAYMENT.NAME' | translate }}</h2>
+
+<div class="payment-container">
+    <p>  {{ 'PAYMENT1.NAME2' | translate }} {{ totalPrice }} ₾</p>
+
+    <form class="payment-form">
+      <div class="form-group">
+        <label for="cardNumber">{{ 'PAYMENT2.NAME3' | translate }}</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="0000-0000-0000-0000" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="expiryDate">{{ 'PAYMENT3.NAME4' | translate }}</label>
+        <div class="expiry-container">
+          <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" maxlength="2" required>
+          <span>/</span>
+          <input type="text" id="expiryYear" name="expiryYear" placeholder="YY" maxlength="2" required>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="cardholderName">{{ 'PAYMENT4.NAME5' | translate }}</label>
+        <input type="text" id="cardholderName" name="cardholderName" placeholder="სახელი, გვარი" required>
+      </div>
+  
+     <button type="submit" (click)="processPayment()">{{ 'PAYMENT5.NAME6' | translate }}</button>
+    </form>
+  </div>

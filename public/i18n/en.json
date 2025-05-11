@@ -26,7 +26,7 @@
         "TITLE5":"Online"
     },
     "HEADERS6":{
-        "TITLE6":"We wish you a pleasant journey!n"
+        "TITLE6":"We wish you a pleasant journey!"
     },
 
 
@@ -34,5 +34,211 @@
         "TRAIN ":" Train list"
 
 
-    }
+    },
+
+    "TRAINS1":{
+        "TRAIN1 ":" Train Number"
+
+
+    },
+    "TRAINS2":{
+        "TRAINS2 ":" Departure"
+
+
+    },
+    "TRAINS3":{
+        "TRAINS3 ":"Arrival"
+
+
+    },
+    
+    "TRAINS4":{
+        "TRAINS4 ":"Reservation"
+
+
+    },
+    "HOMETRAIN1":{
+        "HOMETRAIN1 ":"Book a train ticket"
+
+
+    },
+    "HOMETRAIN2":{
+        "HOMETRAIN2 ":"From"
+
+
+    },
+    "HOMETRAIN3":{
+        "HOMETRAIN3 ":"To"
+
+
+    },
+    "HOMETRAIN4":{
+        "HOMETRAIN4 ":"Find Train"
+
+
+    },
+    "HOMETRAIN5":{
+        "HOMETRAIN5 ":"Train Tickets"
+
+
+    },
+    "HOMETRAIN6":{
+        "HOMETRAIN6 ":"To purchase railway tickets, you will need each passenger's personal ID number. Please prepare this information in advance."
+
+
+    },
+    "HOMETRAIN7":{
+        "HOMETRAIN7 ":"Unlimited offers"
+
+
+    },
+    "HOMETRAIN8":{
+        "HOMETRAIN8 ":"24x7 support"
+
+
+    },
+    "HOMETRAIN9":{
+        "HOMETRAIN9 ":"100% secure"
+
+
+    },
+    "HOMETRAIN10":{
+        "HOMETRAIN10 ":"100% secure payment"
+
+
+    },
+   "Ticket-check1": {
+  "ticketnum": "Ticket number"
+},
+"TICKET": {
+    "ENTER_NUMBER": "Enter your ticket number"
+  },
+
+  "TICKET1": {
+    "CHOOSE": "Choose"
+  },
+  "FOOTER": {
+    "NAME": "All rights reserved."
+  },
+  "LINK": {
+    "TITLE": "Advantages of train travel"
+  },
+  "LINK1": {
+    "NAME": "Safety"
+  },
+  "LINK2": {
+    "TEXT": "Trains are distinguished by high safety standards, ensuring your peaceful journey."
+  },
+  "LINK3": {
+    "TEXT1": "Fast"
+  },
+   "LINK4": {
+    "TEXT2": "While not all routes are equally fast, in many cases the train offers an effective way to save time"
+  },
+  "LINK5": {
+    "TEXT3": "Affordable"
+  },
+   "LINK6": {
+    "TEXT4": "Often, traveling by train is more economical, especially if you plan in advance and purchase tickets early. Consider the savings on fuel, parking, and other expenses."
+  },
+  "LINK7": {
+    "TEXT5": "Comfortable"
+  },
+   "LINK8": {
+    "TEXT6": "Enjoy spacious seats, the freedom to move around, and the opportunity to work or relax during your journey."
+  },
+   "ORDER": {
+    "TEXT1": "Passanger information"
+  },
+  "ORDER1": {
+    "TEXT2": "Enter your details"
+  },
+   "ORDER2": {
+    "TEXT3": "Contact information"
+  },
+  "ORDER3": {
+    "TEXT4": "email"
+  },
+  "ORDER4": {
+    "TEXT5": "phone number"
+  },
+  "ORDER5": {
+    "TEXT6": "The phone number must start with 5 and contain 9 digits."
+  },
+   "ORDER6": {
+     "TEXT5": "Passenger information" 
+    },
+     "ORDER7": { 
+        "TEXT6": "Passenger" 
+    },
+    "ORDER8": { 
+        "TEXT7": "Seat" 
+    },
+    "ORDER9": { 
+        "TEXT8": "Name"
+     },
+    "ORDER11": {
+         "TEXT10": "Last name" 
+         },
+          "ORDER12": {
+    "TEXT11": "Personal ID number"
+  },
+   "ORDER13": {
+    "TEXT12": "Choose seat"
+  },
+  "ORDER14": {
+    "TEXT13": "Total:"
+  },
+  "ORDER15": {
+    "TEXT14": "I have read and accept the terms."
+  },
+  "ORDER17": {
+    "TEXT15": "Included "
+  },
+  "ORDER18": {
+    "TEXT16": "Excluded "
+  },
+   "PAYMENT": {
+    "NAME": "Payment Page"
+  },
+  "PAYMENT1": {
+  "NAME2": "Total Amount to Pay: "
+},
+"PAYMENT2": {
+  "NAME3": "Card Number"
+},
+"PAYMENT3": {
+  "NAME4": "Expiration Date"
+},
+"PAYMENT4": {
+  "NAME5": "Cardholder Name"
+},
+"PAYMENT5": {
+  "NAME6": "Pay"
+},
+"TICKET-DETAILS": {
+    "details": "Ticket details"
+  },
+  "TICKET_DETAILS": {
+    "DEPARTURE": "Departure",
+    "ARRIVAL": "Arrival",
+    "TICKET_ID": "Ticket ID",
+    "PHONE": "Phone",
+    "EMAIL": "Email",
+    "DATE": "Date",
+    "PRICE": "Price (₾)",
+    "PASSENGERS": "Passengers",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "PERSONAL_ID": "ID Number"
+  }
+  
+
+  
+  
+
+
+    
+
+    
 }

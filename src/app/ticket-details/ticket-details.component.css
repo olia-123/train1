@@ -1,0 +1,144 @@
+:host {
+  display: block;
+  padding: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #004d76;
+}
+
+.success-message {
+  background-color: #e0f7fa;
+  border: 1px solid #26c6da;
+  color: #006064;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  padding-left: 37%;
+}
+.success-message .check-icon {
+  font-size: 1.5rem;
+  color: #00838f;
+}
+
+.ticket-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e3f2fd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(1, 87, 155, 0.1);
+}
+
+.ticket-content h2 {
+  color: #01579b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #0277bd;
+  font-size: 0.95rem;
+}
+.form-group .form-control {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #004d76;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group .form-control:focus {
+  outline: none;
+  border-color: #0288d1;
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.2);
+}
+.form-group .form-control:disabled {
+  background-color: #f9f9f9;
+  color: #666;
+  box-shadow: none;
+  border-color: #ddd;
+}
+
+.ticket-content h3 {
+  color: #0277bd;
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.actions .btn {
+  flex: 1 1 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #0288d1;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.actions .btn:hover {
+  background-color: #0277bd;
+  transform: translateY(-2px);
+}
+.actions .btn:active {
+  background-color: #026ca0;
+  transform: translateY(0);
+}
+.actions .btn fa-icon {
+  font-size: 1.2rem;
+}
+
+.loading p {
+  text-align: center;
+  color: #0277bd;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .ticket-content,
+  .success-message {
+    padding: 1rem;
+  }
+  .ticket-content h2 {
+    font-size: 1.4rem;
+  }
+  .form-control {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+  }
+}/*# sourceMappingURL=ticket-details.component.css.map */

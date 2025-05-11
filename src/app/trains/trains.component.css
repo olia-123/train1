@@ -1,0 +1,58 @@
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul > div {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+ul > div p {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+}
+ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background-color: #F4F5FC;
+}
+ul li:hover {
+  background-color: #D2D5ED;
+}
+ul li > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+ul li > div p {
+  margin: 4px 0;
+}
+ul li button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ul li button:hover {
+  background-color: #0056b3;
+}/*# sourceMappingURL=trains.component.css.map */

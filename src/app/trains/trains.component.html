@@ -2,9 +2,9 @@
 
 <ul>
   <div>
-    <p>მატარებლის ნომერი</p>
-    <p> გამგზავრება</p>
-    <p> ჩასვლა </p>
+    <p> {{ 'TRAINS1.TRAIN1 ' | translate }}</p>
+    <p> {{ 'TRAINS2.TRAINS2 ' | translate }} </p>
+    <p> {{ 'TRAINS3.TRAINS3 ' | translate }} </p>
     
   </div>
   <li *ngFor="let train of trains">
@@ -26,6 +26,6 @@
       <p>{{ train.to }}</p>
     </div>
 
-    <button (click)="order(train, train.id)">დაჯავშნა</button>
+    <button (click)="order(train, train.id)">{{ 'TRAINS4.TRAINS4 ' | translate }}</button>
   </li>
 </ul>

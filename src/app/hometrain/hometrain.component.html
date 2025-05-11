@@ -1,10 +1,10 @@
 
-<h4>დაჯავშნეთ მატარებლის ბილეთი</h4>
+<h4>{{ 'HOMETRAIN1.HOMETRAIN1 ' | translate }}</h4>
 
 <form (ngSubmit)="onSubmit()">
     <!-- from -->
    <select [(ngModel)]="source" name="source" id="">
-      <option value="" disabled selected>საიდან</option>
+      <option value="" disabled selected>{{ 'HOMETRAIN2.HOMETRAIN2 ' | translate }}</option>
     @for (item of sources; track $index) {
         <option  width="60" [value]="item.value"> {{item.viewValue}}</option>
        
@@ -16,7 +16,7 @@
 <!-- to -->
    <select [(ngModel)]="destination" name="destination" id="">
     {{destination}}
-    <option value="" disabled selected>სად</option>
+    <option value="" disabled selected>{{ 'HOMETRAIN3.HOMETRAIN3 ' | translate }}</option>
     @for (item of sources; track $index) {
         <option [value]="item.value"> {{item.viewValue}}</option>
     }
@@ -27,7 +27,7 @@
 <!-- pessenger  -->
    <input type="number" [(ngModel)]="travelers" name="travelers" placeholder=" რაოდენობა">
    
-   <button type="submit">მატარებლის მოძებნა</button>
+   <button type="submit"> {{ 'HOMETRAIN5.HOMETRAIN5 ' | translate }} </button>
   
 </form>
 
@@ -40,22 +40,22 @@
  <img src="https://railway.stepprojects.ge/assets/img/train/trainticket.png" alt="err" width="100%" height="90%">
 </div>
 <div class="train-text">
-   <h2>მატარებლის ბილეთები</h2>
-   <p>რკინიგზის ბილეთების შესაძენად თქვენ დაგჭირდებათ თითოეული მგზავრის პირადი ნომერი. გთხოვთ მოამზადოთ ეს ინფორმაცია წინასწარ.</p>
+   <h2>{{ 'HOMETRAIN5.HOMETRAIN5 ' | translate }}</h2>
+   <p>{{ 'HOMETRAIN6.HOMETRAIN6 ' | translate }}</p>
 
 <ul>
    <li>
       <span><img src="https://railway.stepprojects.ge/assets/img/train/unoffer.png" alt="err"> </span>
-      <span>შეუზღუდავი შეთავაზებები</span>
+      <span>{{ 'HOMETRAIN7.HOMETRAIN7 ' | translate }}</span>
       </li>
    <li > <span><img src="https://railway.stepprojects.ge/assets/img/train/suppor24.png" alt="err"> </span>
-      <span>24X7 მხარდაჭერა</span>
+      <span>{{ 'HOMETRAIN8.HOMETRAIN8 ' | translate }}</span>
    </li>
    <li> <span><img src="https://railway.stepprojects.ge/assets/img/train/secure100.png" alt="err"> </span>
-      <span>100% უსაფრთხო</span>
+      <span>{{ 'HOMETRAIN9.HOMETRAIN9 ' | translate }}</span>
    </li>
    <li> <span><img src="https://railway.stepprojects.ge/assets/img/train/truspay.png" alt="err"> </span>
-      <span>100% უსაფრთხო გადახდა</span>
+      <span>{{ 'HOMETRAIN10.HOMETRAIN10 ' | translate }}</span>
    </li>
 </ul>
 </div>

@@ -7,12 +7,14 @@ import { TrainsComponent } from './trains/trains.component';
 import { HometrainComponent } from './hometrain/hometrain.component';
 import { OrderComponent } from './order/order.component';
 import { TicketCheckerComponent } from './ticket-checker/ticket-checker.component';
+import { PaymentComponent } from './payment/payment.component';
+import { TicketDetailsComponent } from './ticket-details/ticket-details.component'; // ახლად შექმნილი კომპონენტი
 
 
 export const routes: Routes = [
     {
         path:"",
-        component:HomeComponent
+        component:HometrainComponent
     },
     {
         path:"link",
@@ -42,7 +44,14 @@ export const routes: Routes = [
         component:OrderComponent
     },
 
-    { path: 'check-ticket', 
+    { path: 'payment',
+         component: PaymentComponent },
+
+       
+  { path: 'ticket-details/:ticketId',
+     component: TicketDetailsComponent },
+
+    { path: 'check-ticket',
         component: TicketCheckerComponent }, 
 
        
